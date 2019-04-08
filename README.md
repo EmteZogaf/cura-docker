@@ -1,6 +1,6 @@
 # Cura packaged as a container from Ubuntu PPA
 
-_Forked from https://github.com/steveb/cura-docker as it hasn't been over a year and doesn't use tags on docker hub._
+_Forked from https://github.com/steveb/cura-docker as it hasn't been updated for over a year and doesn't use tags on docker hub._
 
 This image packages [Thomas Pietrowski's cura PPA](https://launchpad.net/~thopiekar/+archive/ubuntu/cura) so that it can be run in an isloated container.
 
