@@ -5,6 +5,7 @@ RUN apt-get -y update && \
     add-apt-repository ppa:thopiekar/cura-master && \
     apt-get -y update && \
     pip3 -q install requests
-RUN apt-get -y install cura=1:4.2~201907131637~rev4153~pkg315~ubuntu19.10.1
+RUN apt-get -y update && \
+    apt-get -y install cura=1:4.3~201909261449~rev4059~pkg316~ubuntu19.10.1
 
 CMD /usr/bin/cura
