@@ -8,8 +8,21 @@ It can be run with the following script:
 
 ```sh
 #!/bin/sh
+
+if  docker inspect cura-docker > /dev/null
+then
+  docker rm cura-docker
+  sudo rm -rf /tmp/.docker.xauth
+fi
+
 XSOCK=/tmp/.X11-unix
 XAUTH=/tmp/.docker.xauth
 xauth nlist :0 | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
-docker run -ti -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -v $HOME:$HOME -v $XSOCK:$XSOCK -v $XAUTH:$XAUTH -e XAUTHORITY=$XAUTH -e DISPLAY --user $UID:$GROUPS docker.io/stevebake/cura-docker
+docker run -ti -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -v $HOME:$HOME -v $XSOCK:$XSOCK -v $XAUTH:$XAUTH -e XAUTHORITY=$XAUTH -e DISPLAY --user $UID:$GROUPS docker.io/math2306/cura-docker
+```
+
+If you want any third-party plugins to be installed, you can mount them to the plugins subfolder by adding the volume mount parameter to the `docker run` command, e.g.:
+
+```sh
+-v /path/to/plugin/Plugin.py:/usr/lib/cura/plugins/PostProcessingPlugin/scripts/Plugin.py
 ```
