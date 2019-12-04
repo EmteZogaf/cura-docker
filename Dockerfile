@@ -6,6 +6,6 @@ RUN apt-get -y update && \
     apt-get -y update && \
     pip3 -q install requests
 RUN apt-get -y update && \
-    apt-get -y install cura=1:4.3~201909261449~rev4059~pkg316~ubuntu19.10.1
+    apt-get -y install cura=1:4.4~201912031518~rev4220~pkg327~ubuntu19.10.1 
 
 CMD /usr/bin/cura
