@@ -1,6 +1,6 @@
-FROM ubuntu:20.10
+FROM ubuntu:21.04
 
 RUN apt-get -y update && \
-    apt-get -y install cura=4.6.2-1
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends cura=4.8-3
 
 CMD /usr/bin/cura
